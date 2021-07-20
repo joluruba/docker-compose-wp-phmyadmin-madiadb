@@ -1,0 +1,32 @@
+version: "3.0"
+services:
+  wordpress: 
+    image: wordpress
+    restart: unless-stopped
+    volumes:
+        - vol_wp:/var/www/html
+    ports: 
+      - "8080:80"
+    environment: 
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: yusepe
+      WORDPRESS_DB_PASSWORD: nomelase
+  db:
+    image: mariadb
+    restart: unless-stopped
+    volumes:
+      - vol_db:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: nomelaseroot
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: yusepe
+      MYSQL_PASSWORD: nomelase
+volumes: 
+  vol_db:
+  vol_wp:
+
+
+
+
+
