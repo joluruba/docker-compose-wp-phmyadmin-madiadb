@@ -1,7 +1,7 @@
 version: "3.0"
 services:
   wordpress: 
-    image: wordpress
+    image: wordpress:5.7.2-php7.4-apache
     restart: unless-stopped
     volumes:
         - vol_wp:/var/www/html
@@ -13,7 +13,7 @@ services:
       WORDPRESS_DB_USER: yusepe
       WORDPRESS_DB_PASSWORD: nomelase
   db:
-    image: mariadb
+    image: mariadb:10.6.3-focal
     restart: unless-stopped
     volumes:
       - vol_db:/var/lib/mysql
@@ -23,7 +23,7 @@ services:
       MYSQL_USER: yusepe
       MYSQL_PASSWORD: nomelase
   phpmyadmin:
-    image: phpmyadmin
+    image: phpmyadmin:5.1.1-apache
     restart: unless-stopped
     ports:
         - 8000:80
