@@ -1,12 +1,20 @@
 version: "3.0"
 services:
+  web:
+    image: nginx:latest
+    build: .
+    restart: unless-stopped
+    ports: 
+      - "8082:80"
+    volumes:
+       - vol_wp:/var/www/html
   wordpress: 
-    image: wordpress:5.7.2-php7.4-apache
+    image: wordpress:5.8.0-php7.4-fpm
+    expose:
+      - "9000"
     restart: unless-stopped
     volumes:
-        - vol_wp:/var/www/html
-    ports: 
-      - "8080:80"
+      - vol_wp:/var/www/html
     environment: 
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: wordpress
@@ -32,6 +40,7 @@ services:
 volumes: 
   vol_db:
   vol_wp:
+  vol_nginx:
 
 
 

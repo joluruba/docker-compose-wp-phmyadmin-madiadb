@@ -6,8 +6,8 @@
 ## Fichero .env
 
     | ---------------------------------------------------------------  |
-    | ROOT_PASSWORD=Aquí va la clave del Root         |
-    | ROOT_PASSWORD= Aquí va la clave del usuario  |
+    | ROOT_PASSWORD=Aquí va la clave del Root                          |
+    | ROOT_PASSWORD= Aquí va la clave del usuario                      |
     | ---------------------------------------------------------------  |
 
 ### Final introducción Variables
